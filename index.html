@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<!-- BANNIÈRE DE BIENVENUE -->
+<div class="welcome-banner">
+  <h2>Bienvenue chez ProtectScreen</h2>
+  <p>✨ Protégez votre Moustiquaire avec style ✨</p>
+</div>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.9"/>
+  <title>ProtectScreen - Boutique</title>
+  <link rel="stylesheet" href="style.css" />
+
+
+</head>
+
+<body>
+  <header>
+  <header class="header-home">
+
+ <!-- ✅ Texte sous le logo -->
+  <p class="slogan">Protégez et décorez votre moustiquaire!</p>
+
+      <img src="Photos/protect-screen.png" alt="Logo ProtectScreen" class="logo" />
+<!-- Font Awesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+<nav>
+  <a href="Nos Produits.html">Nos Produits</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+
+    <!-- Contenu principal -->
+    <main class="content">
+      
+
+    </header>
+
+ </header>
+<img src="Photos/Bannière.png" alt="Bannière accueil" class="banner" />
+
+<section class="info-barre">
+  <p>
+    Le ProtectScreen est un procédé thermo-soudable unique qui vous permet de rendre visible votre moustiquaire, en plus d'ajouter un aspect décoratif.
+  </p>
+</section>
+
+  <main>
+    <section class="products">
+      <div class="card">
+        <img src="Photos/Fleur.png" alt="Fleur" />
+        <h2>Fleur</h2>
+        <p>10 $ CA</p>
+ <button onclick="addToCart('ProtectScreen Fleur', 10, 'Photos/Fleur.png')">Ajouter au panier</button>
+
+      </div>
+
+      <div class="card">
+        <img src="Photos/Oiseau.png" alt="Oiseau" />
+        <h2>Oiseau</h2>
+        <p>10 $ CA</p>
+  <button onclick="addToCart('ProtectScreen Oiseau', 10, 'Photos/Oiseau.png')">Ajouter au panier</button>
+
+      </div>
+
+      <div class="card">
+        <img src="Photos/Papillon.png" alt="Papillon" />
+        <h2>Papillon</h2>
+        <p>10 $ CA</p>
+        <button onclick="addToCart('ProtectScreen Papillon', 10, 'Photos/Papillon.png')">Ajouter au panier</button>
+
+      </div>
+
+      <div class="card">
+        <img src="Photos/Soleil.png" alt="Soleil" />
+        <h2>Soleil</h2>
+        <p>10 $ CA</p>
+ <button onclick="addToCart('ProtectScreen Soleil', 10, 'Photos/Soleil.png')">Ajouter au panier</button>
+
+      </div>
+    </section>
+
+<aside class="cart">
+  <h2><i class="fas fa-shopping-cart"></i> Panier</h2>
+  <ul id="cart-items"></ul>
+  <p>Total : <span id="cart-total">0</span> $ CA</p>
+</aside>
+
+  </main>
+
+  <script src="script.js"></script>
+
+
+<section class="newsletter">
+  <h2>Restez informé</h2>
+  <p>Recevez nos nouveautés et promotions directement par courriel.</p>
+  <form>
+    <input type="email" placeholder="Votre courriel" required>
+    <button type="submit">S’inscrire</button>
+  </form>
+</section>
+
+
+</body>
+</html>
+

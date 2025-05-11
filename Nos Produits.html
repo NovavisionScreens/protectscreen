@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nos Produits - ProtectScreen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+  
+<header class="header-home">
+    <img src="Photos/protect-screen.png" alt="Logo protect-screen" class="logo">
+   </header>
+
+<section id="nos-produits" class="nos-produits-section">
+  <div class="produits-intro">
+    <img src="Photos/Oiseau_dehors.png" alt="Produits ProtectScreen" class="produits-image" />
+
+    <div class="produits-texte">
+     <h3>Spécifications :</h3>
+<ul class="specifications">
+  <li>Installation facile à l’aide d’un fer à repasser</li>
+  <li>Procédé unique, thermo-soudable</li>
+  <li>Résistant</li>
+  <li>En noir seulement</li>
+  <li>Disponible en 5 modèles</li>
+  <li>Installation sur tout type de mèche (à l’exception de la mèche en métal)</li>
+</ul>
+
+
+    </div>
+  </div>
+
+  <div class="products">
+    <!-- cartes produits ici -->
+  </div>
+</section>
+
+
+  <div class="products">
+    <div class="card">
+      <img src="Photos/Fleur.png" alt="ProtectScreen Fleur">
+      <h3>Fleur</h3>
+      <p>Un motif floral apaisant qui apporte une touche naturelle à votre espace.</p>
+      <p class="price">10 $ CA</p>
+      <button onclick="addToCart('ProtectScreen Fleur', 10, 'Photos/Fleur.png')">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="Photos/Oiseau.png" alt="ProtectScreen Oiseau">
+      <h3>Oiseau</h3>
+      <p>Un design aérien et léger, idéal pour une ambiance relaxante.</p>
+      <p class="price">10 $ CA</p>
+      <button onclick="addToCart('ProtectScreen Oiseau', 10, 'Photos/Oiseau.png')">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="Photos/Papillon.png" alt="ProtectScreen Papillon">
+      <h3>Papillon</h3>
+      <p>Élégant et coloré, ce modèle égaye votre pièce avec douceur.</p>
+      <p class="price">10 $ CA</p>
+      <button onclick="addToCart('ProtectScreen Papillon', 10, 'Photos/Papillon.png')">Ajouter au panier</button>
+    </div>
+
+    <div class="card">
+      <img src="Photos/Soleil.png" alt="ProtectScreen Soleil">
+      <h3>Soleil</h3>
+      <p>Chaleureux et lumineux, il rayonne dans n'importe quel intérieur.</p>
+      <p class="price">10 $ CA</p>
+      <button onclick="addToCart('ProtectScreen Soleil', 10, 'Photos/Soleil.png')">Ajouter au panier</button>
+    </div>
+  </div>
+
+    </section>
+
+<aside class="cart">
+  <h2><i class="fas fa-shopping-cart"></i> Panier</h2>
+  <ul id="cart-items"></ul>
+  <p>Total : <span id="cart-total">0</span> $ CA</p>
+</aside>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</section>
