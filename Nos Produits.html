@@ -74,13 +74,25 @@
     </section>
 
 <aside class="cart">
-  <h2><i class="fas fa-shopping-cart"></i> Panier</h2>
+  <h2>Panier</h2>
   <ul id="cart-items"></ul>
-  <p>Total : <span id="cart-total">0</span> $ CA</p>
+  <p>Total : <span id="cart-total">0.00</span> $ CA</p>
+
+  <!-- Bouton PayPal -->
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-form">
+    <input type="hidden" name="cmd" value="_cart">
+    <input type="hidden" name="upload" value="1">
+    <input type="hidden" name="business" value="VOTRE-EMAIL-PAYPAL@example.com"> <!-- Remplacez par votre adresse PayPal -->
+    <input type="hidden" name="currency_code" value="CAD">
+    <div id="paypal-items"></div>
+    <input type="submit" value="Payer avec PayPal">
+  </form>
 </aside>
+
 
   </main>
 
   <script src="script.js"></script>
 
 </section>
+
