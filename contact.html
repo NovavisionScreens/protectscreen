@@ -12,21 +12,27 @@
     <img src="Photos/protect-screen.png" alt="Logo protect-screen" class="logo">
    </header>
 
-  <main class="content">
-    <h1>Contactez-nous</h1>
-    <p>Pour toute question ou commande personnalisée, vous pouvez nous écrire à :</p>
-    <p><strong>info@protectscreen.ca</strong></p>
+<section id="contact" style="padding: 40px; background-color: #f7f7f7;">
+  <div style="max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; margin-bottom: 20px;">Nous contacter</h2>
+    
+    <p style="text-align: center;">
+      Une question ? un commentaire ? N’hésitez pas à nous écrire !
+    </p>
 
-<section class="newsletter">
-  <h2>Restez informé</h2>
-  <p>Recevez nos nouveautés et promotions directement par courriel.</p>
-  <form>
-    <input type="email" placeholder="Votre courriel" required>
-    <button type="submit">S’inscrire</button>
-  </form>
+    <form action="mailto:info@novavisionscreens.com" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+      <input type="text" name="Nom" placeholder="Votre nom" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+      <input type="email" name="Courriel" placeholder="Votre courriel" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+      <textarea name="Message" rows="5" placeholder="Votre message..." required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+      <button type="submit" style="padding: 12px; background-color: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer;">Envoyer</button>
+    </form>
+
+    <div style="margin-top: 30px; text-align: center; font-size: 0.9em;">
+      <p>📍 Adresse : 989 avenue Bergeron, Saint-Agapit, Québec, Canada</p>
+      <p>📧 Courriel : <a href="mailto:info@novavisionscreens.com">info@novavisionscreens.com</a></p>
+    </div>
+  </div>
 </section>
-
-
 
 </body>
 </html>
