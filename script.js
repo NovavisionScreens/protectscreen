@@ -41,7 +41,6 @@ function updateCart() {
       ${item.name} x${item.quantity} - ${currencyFormat.format(itemTotal)}
     `;
 
-    // Boutons
     const minusBtn = document.createElement('button');
     minusBtn.textContent = '➖';
     minusBtn.onclick = () => changeQuantity(index, -1);
@@ -65,6 +64,54 @@ function updateCart() {
   });
 
   cartTotal.textContent = currencyFormat.format(total);
+  renderPayPalButton(); // Met à jour le bouton PayPal dynamiquement
 }
 
+function renderPayPalButton() {
+  const paypalContainer = document.getElementById('paypal-button-container');
+  if (!paypalContainer) return;
 
+  paypalContainer.innerHTML = '';
+
+  if (cart.length === 0) return;
+
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      const items = cart.map(item => ({
+        name: item.name,
+        unit_amount: {
+          value: item.price.toFixed(2),
+          currency_code: 'CAD'
+        },
+        quantity: item.quantity
+      }));
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            currency_code: "CAD",
+            value: total,
+            breakdown: {
+              item_total: {
+                currency_code: "CAD",
+                value: total
+              }
+            }
+          },
+          items: items
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Merci ' + details.payer.name.given_name + ' pour votre achat!');
+        cart = [];
+        updateCart();
+      });
+    }
+  }).render('#paypal-button-container');
+}
+
+window.addEventListener('load', updateCart);
