@@ -3,41 +3,44 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nos Produits - ProtectScreen</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Script PayPal -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAAEKdVni6LKk8vB7CueAbtUAVCpI6312AVSBrUInlTvTn1wTMmf2TBajTdgW2cH-rD2RDK9CgNGfIHUrI&components=buttons&disable-funding=venmo&currency=CAD">
+  </script>
 </head>
-  
-<header class="header-home">
+
+<body>
+  <header class="header-home">
     <img src="Photos/protect-screen.png" alt="Logo protect-screen" class="logo">
-   </header>
+    <p class="slogan">Protégez et décorez votre moustiquaire!</p>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<section id="nos-produits" class="nos-produits-section">
-  <div class="produits-intro">
-    <img src="Photos/Oiseau_dehors.png" alt="Produits ProtectScreen" class="produits-image" />
-
-    <div class="produits-texte">
-     <h3>Spécifications :</h3>
-<ul class="specifications">
-  <li>Installation facile à l’aide d’un fer à repasser</li>
-  <li>Procédé unique, thermo-soudable</li>
-  <li>Résistant</li>
-  <li>En noir seulement</li>
-  <li>Disponible en 5 modèles</li>
-  <li>Installation sur tout type de mèche (à l’exception de la mèche en métal)</li>
-</ul>
-
-
+  <section id="nos-produits" class="nos-produits-section">
+    <div class="produits-intro">
+      <img src="Photos/Oiseau_dehors.png" alt="Produits ProtectScreen" class="produits-image" />
+      <div class="produits-texte">
+        <h3>Spécifications :</h3>
+        <ul class="specifications">
+          <li>Installation facile à l’aide d’un fer à repasser</li>
+          <li>Procédé unique, thermo-soudable</li>
+          <li>Résistant</li>
+          <li>En noir seulement</li>
+          <li>Disponible en 5 modèles</li>
+          <li>Installation sur tout type de mèche (à l’exception de la mèche en métal)</li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="products">
-    <!-- cartes produits ici -->
-  </div>
-</section>
-
-
-  <div class="products">
+  <main class="products">
     <div class="card">
       <img src="Photos/Fleur.png" alt="ProtectScreen Fleur">
       <h3>Fleur</h3>
@@ -69,30 +72,20 @@
       <p class="price">10 $ CA</p>
       <button onclick="addToCart('ProtectScreen Soleil', 10, 'Photos/Soleil.png')">Ajouter au panier</button>
     </div>
-  </div>
-
-    </section>
-
-<aside class="cart">
-  <h2>Panier</h2>
-  <ul id="cart-items"></ul>
-  <p>Total : <span id="cart-total">0.00</span> $ CA</p>
-
-  <!-- Bouton PayPal -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-form">
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="upload" value="1">
-    <input type="hidden" name="business" value="VOTRE-EMAIL-PAYPAL@example.com"> <!-- Remplacez par votre adresse PayPal -->
-    <input type="hidden" name="currency_code" value="CAD">
-    <div id="paypal-items"></div>
-    <input type="submit" value="Payer avec PayPal">
-  </form>
-</aside>
-
-
   </main>
 
-  <script src="script.js"></script>
+  <aside class="cart">
+    <h2>Panier</h2>
+    <ul id="cart-items"></ul>
+    <p>Total : <span id="cart-total">0.00</span> $ CA</p>
 
-</section>
+    <!-- Bouton PayPal dynamique -->
+    <div id="paypal-button-container"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
 
