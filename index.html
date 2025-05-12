@@ -1,55 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-<!-- BANNIÈRE DE BIENVENUE -->
-<div class="welcome-banner">
-  <h2>Bienvenue chez ProtectScreen</h2>
-  <p>✨ Protégez votre Moustiquaire avec style ✨</p>
-</div>
-
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.9"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ProtectScreen - Boutique</title>
   <link rel="stylesheet" href="style.css" />
-
-
+  <!-- ✅ Intégration du Client ID LIVE de PayPal -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAEKdVni6LKk8vB7CueAbtUAVCpI6312AVSBrUInlTvTn1wTMmf2TBajTdgW2cH-rD2RDK9CgNGfIHUrI&currency=CAD"></script>
 </head>
 
 <body>
-  <header>
   <header class="header-home">
+    <img src="Photos/protect-screen.png" alt="Logo ProtectScreen" class="logo" />
+    <p class="slogan">Protégez et décorez votre moustiquaire!</p>
+    <nav>
+      <a href="Nos Produits.html">Nos Produits</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
- <!-- ✅ Texte sous le logo -->
-  <p class="slogan">Protégez et décorez votre moustiquaire!</p>
+  <img src="Photos/Bannière.png" alt="Bannière accueil" class="banner" />
 
-      <img src="Photos/protect-screen.png" alt="Logo ProtectScreen" class="logo" />
-<!-- Font Awesome pour les icônes -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-
-
-<nav>
-  <a href="Nos Produits.html">Nos Produits</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-
-    <!-- Contenu principal -->
-    <main class="content">
-      
-
-    </header>
-
- </header>
-<img src="Photos/Bannière.png" alt="Bannière accueil" class="banner" />
-
-<section class="info-barre">
-  <p>
-    Le ProtectScreen est un procédé thermo-soudable unique qui vous permet de rendre visible votre moustiquaire, en plus d'ajouter un aspect décoratif.
-  </p>
-</section>
+  <section class="info-barre">
+    <p>Le ProtectScreen est un procédé thermo-soudable unique qui vous permet de rendre visible votre moustiquaire, en plus d'ajouter un aspect décoratif.</p>
+  </section>
 
   <main>
     <section class="products">
@@ -57,59 +31,115 @@
         <img src="Photos/Fleur.png" alt="Fleur" />
         <h2>Fleur</h2>
         <p>10 $ CA</p>
- <button onclick="addToCart('ProtectScreen Fleur', 10, 'Photos/Fleur.png')">Ajouter au panier</button>
-
+        <button onclick="addToCart('ProtectScreen Fleur', 10, 'Photos/Fleur.png')">Ajouter au panier</button>
       </div>
-
       <div class="card">
         <img src="Photos/Oiseau.png" alt="Oiseau" />
         <h2>Oiseau</h2>
         <p>10 $ CA</p>
-  <button onclick="addToCart('ProtectScreen Oiseau', 10, 'Photos/Oiseau.png')">Ajouter au panier</button>
-
+        <button onclick="addToCart('ProtectScreen Oiseau', 10, 'Photos/Oiseau.png')">Ajouter au panier</button>
       </div>
-
       <div class="card">
         <img src="Photos/Papillon.png" alt="Papillon" />
         <h2>Papillon</h2>
         <p>10 $ CA</p>
         <button onclick="addToCart('ProtectScreen Papillon', 10, 'Photos/Papillon.png')">Ajouter au panier</button>
-
       </div>
-
       <div class="card">
         <img src="Photos/Soleil.png" alt="Soleil" />
         <h2>Soleil</h2>
         <p>10 $ CA</p>
- <button onclick="addToCart('ProtectScreen Soleil', 10, 'Photos/Soleil.png')">Ajouter au panier</button>
-
+        <button onclick="addToCart('ProtectScreen Soleil', 10, 'Photos/Soleil.png')">Ajouter au panier</button>
       </div>
     </section>
 
-<aside class="cart">
-  <h2>Panier</h2>
-  <ul id="cart-items"></ul>
-  <p>Total : <span id="cart-total">0.00</span> $ CA</p>
+    <aside class="cart">
+      <h2>Panier</h2>
+      <ul id="cart-items"></ul>
+      <p>Total : <span id="cart-total">0.00</span> $ CA</p>
 
-  <!-- Bouton PayPal -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-form">
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="upload" value="1">
-    <input type="hidden" name="business" value="VOTRE-EMAIL-PAYPAL@example.com"> <!-- Remplacez par votre adresse PayPal -->
-    <input type="hidden" name="currency_code" value="CAD">
-    <div id="paypal-items"></div>
-    <input type="submit" value="Payer avec PayPal">
-  </form>
-</aside>
-
-
+      <!-- ✅ Bouton PayPal -->
+      <div id="paypal-button-container" style="margin-top: 20px;"></div>
+    </aside>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    let cart = [];
 
+    const currencyFormat = new Intl.NumberFormat('fr-CA', {
+      style: 'currency',
+      currency: 'CAD',
+    });
 
+    function addToCart(name, price, imagePath) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1, imagePath });
+      }
+      updateCart();
+    }
 
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        li.innerHTML = `
+          <img src="${item.imagePath}" alt="${item.name}" style="width:40px; margin-right:10px; vertical-align:middle;">
+          ${item.name} x${item.quantity} - ${currencyFormat.format(itemTotal)}
+          <button onclick="changeQuantity(${index}, -1)">➖</button>
+          <button onclick="changeQuantity(${index}, 1)">➕</button>
+          <button onclick="removeItem(${index})">🗑️</button>
+        `;
+        cartItems.appendChild(li);
+      });
+
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function changeQuantity(index, amount) {
+      cart[index].quantity += amount;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    // ✅ PayPal Button Logic
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        const total = parseFloat(document.getElementById('cart-total').innerText);
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: total.toFixed(2),
+              currency_code: "CAD"
+            }
+          }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert('Merci pour votre achat, ' + details.payer.name.given_name + '!');
+          cart = [];
+          updateCart();
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
 </body>
 </html>
-
 
